@@ -1,0 +1,178 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: #ffffff;
+    --foreground: #1a1a1a;
+
+    --card: #f7f7f7;
+    --card-foreground: #1a1a1a;
+
+    --popover: #f7f7f7;
+    --popover-foreground: #1a1a1a;
+
+    --primary: #1a1a1a;
+    --primary-foreground: #ffffff;
+
+    --secondary: #3a3a3a;
+    --secondary-foreground: #ffffff;
+
+    --muted: #e0e0e0;
+    --muted-foreground: #6a6a6a;
+
+    --accent: #1a1a1a;
+    --accent-foreground: #ffffff;
+
+    --destructive: #ff6b6b;
+    --destructive-foreground: #ffffff;
+
+    --border: #e0e0e0;
+    --input: #e0e0e0;
+    --ring: #1a1a1a;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: #1a1a1a;
+    --foreground: #f7f7f7;
+
+    --card: #2a2a2a;
+    --card-foreground: #f7f7f7;
+
+    --popover: #2a2a2a;
+    --popover-foreground: #f7f7f7;
+
+    --primary: #f7f7f7;
+    --primary-foreground: #1a1a1a;
+
+    --secondary: #3a3a3a;
+    --secondary-foreground: #f7f7f7;
+
+    --muted: #3a3a3a;
+    --muted-foreground: #b0b0b0;
+
+    --accent: #3a3a3a;
+    --accent-foreground: #f7f7f7;
+
+    --destructive: #ff6b6b;
+    --destructive-foreground: #f7f7f7;
+
+    --border: #3a3a3a;
+    --input: #3a3a3a;
+    --ring: #4a4a4a;
+  }
+}
+
+@layer components {
+  .navbar .dropdown-menu {
+    @apply bg-card text-card-foreground;
+
+    @media (prefers-color-scheme: dark) {
+      @apply bg-dark-card text-dark-card-foreground;
+    }
+  }
+}
+
+body {
+  font-family: var(--font-gabarito), sans-serif;
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-gabarito), sans-serif;
+}
+
+.main {
+  font-family: var(--font-gabarito), sans-serif;
+}
+
+.flow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cards {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cards__inner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.card {
+  padding: 20px;
+  border-radius: 12px;
+  transition: transform 0.3s ease;
+  background-color: var(--card);
+  color: var(--card-foreground);
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.card--highlighted {
+  background-color: var(--accent);
+  color: var(--accent-foreground);
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 10;
+}
+
+.footer {
+  background: var(--background);
+  color: var(--foreground);
+}
+
+.footer input {
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  margin-bottom: 0.5rem;
+  border: 1px solid var(--border);
+}
+
+.footer button {
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  background-color: var(--primary);
+  color: var(--primary-foreground);
+  transition: background-color 0.3s ease;
+}
+
+.footer button:hover {
+  background-color: var(--secondary);
+}
+
+
+input[type="file"] {
+  display: block;
+  margin-bottom: 10px;
+}
+
+select {
+  margin-bottom: 10px;
+}
+
+pre {
+  background-color: #f4f4f4;
+  padding: 10px;
+  border-radius: 5px;
+  overflow: auto;
+}
